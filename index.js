@@ -53,6 +53,32 @@ exports.forgetransfer = async function (reqItem, reqReceiver) {
   }
 }
 
+exports.forgecreate = async function (value, name, image) {
+  if (authKey === "") throw 'Authentication is required prior to making API requests'
+  if (!name || name.length === 0 || name.length >= 34) throw 'Invalid item name'
+  if (!value || value < 10) throw 'Invalid item value'
+  if (!image || image.length < 10) throw 'Invalid item image URL'
+  try {
+    var result = await req.request(basePublicUrl + 'forgecreate', {
+      method: 'POST',
+      body: {
+        api_key: authKey,
+        title: name,
+        value: value,
+        image: image
+      }
+    })
+    result = JSON.parse(result.body)
+    return result
+  } catch (err) {
+    if (err.body) {
+      throw 'ZENZO SDK Error caught: (' + err.body + ')'
+    } else {
+      throw 'ZENZO SDK Error caught: (' + err + ')'
+    }
+  }
+}
+
 exports.regen = async function () {
   if (authKey === "") throw 'Authentication is required prior to making API requests'
   try {
