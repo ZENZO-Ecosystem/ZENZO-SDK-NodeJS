@@ -2,6 +2,6 @@ var ZENZO = require("../index.js")
 
 ZENZO.auth("insert-zenzo-api-key")
 
-ZENZO.ping().then(res => {
-  console.log(res) // Pong!
+ZENZO.regen().then(res => {
+  console.log(res.content) // New API Key
 })
