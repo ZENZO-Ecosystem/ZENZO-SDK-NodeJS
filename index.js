@@ -79,6 +79,28 @@ exports.forgecreate = async function (value, name, image) {
   }
 }
 
+exports.forgesmelt = async function (id) {
+  if (authKey === "") throw 'Authentication is required prior to making API requests'
+  if (!id || id.length !== 64) throw 'Invalid item ID'
+  try {
+    var result = await req.request(basePublicUrl + 'forgesmelt', {
+      method: 'POST',
+      body: {
+        api_key: authKey,
+        item: id
+      }
+    })
+    result = JSON.parse(result.body)
+    return result
+  } catch (err) {
+    if (err.body) {
+      throw 'ZENZO SDK Error caught: (' + err.body + ')'
+    } else {
+      throw 'ZENZO SDK Error caught: (' + err + ')'
+    }
+  }
+}
+
 exports.forgelist = async function () {
   if (authKey === "") throw 'Authentication is required prior to making API requests'
   try {
