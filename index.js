@@ -28,3 +28,27 @@ exports.ping = async function () {
     }
   }
 }
+
+exports.forgetransfer = async function (reqItem, reqReceiver) {
+  if (authKey === "") throw 'Authentication is required prior to making API requests'
+  if (!reqItem || reqItem.length !== 64) throw 'Invalid item ID'
+  if (!reqReceiver) throw 'Invalid receiver ID'
+  try {
+    var result = await req.request(basePublicUrl + 'forgetransfer', {
+      method: 'POST',
+      body: {
+        api_key: authKey,
+        item: reqItem,
+        receiver: reqReceiver
+      }
+    })
+    result = JSON.parse(result.body)
+    return result.message
+  } catch (err) {
+    if (err.body) {
+      throw 'ZENZO SDK Error caught: (' + err.body + ')'
+    } else {
+      throw 'ZENZO SDK Error caught: (' + err + ')'
+    }
+  }
+}
