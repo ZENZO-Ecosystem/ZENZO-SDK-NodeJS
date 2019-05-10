@@ -1,0 +1,41 @@
+{
+  "name": "zenzo-sdk-nodejs",
+  "version": "0.1.0",
+  "description": "The ZENZO SDK for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ZENZO-SDK-NodeJS"
+  },
+  "keywords": [
+    "ZENZO",
+    "Arcade",
+    "Gaming",
+    "Automation",
+    "Marketplace",
+    "NFTs",
+    "REST",
+    "API",
+    "JSKitty"
+  ],
+  "author": "JSKitty",
+  "license": "MIT",
+  "dependencies": {
+    "requestify": "^0.2.5"
+  },
+  "bugs": {
+    "url": "https://github.com/ZENZO-Ecosystem/ZENZO-SDK-NodeJS/issues"
+  },
+  "homepage": "https://github.com/ZENZO-Ecosystem/ZENZO-SDK-NodeJS",
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0"
+  }
+}
