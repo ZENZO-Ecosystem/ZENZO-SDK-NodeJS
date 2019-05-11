@@ -29,6 +29,26 @@ exports.ping = async function () {
   }
 }
 
+exports.account = async function () {
+  if (authKey === "") throw 'Authentication is required prior to making API requests'
+  try {
+    var result = await req.request(basePublicUrl + 'account', {
+      method: 'POST',
+      body: {
+        api_key: authKey
+      }
+    })
+    result = JSON.parse(result.body)
+    return result
+  } catch (err) {
+    if (err.body) {
+      throw 'ZENZO SDK Error caught: (' + err.body + ')'
+    } else {
+      throw 'ZENZO SDK Error caught: (' + err + ')'
+    }
+  }
+}
+
 exports.forgetransfer = async function (reqItem, reqReceiver) {
   if (authKey === "") throw 'Authentication is required prior to making API requests'
   if (!reqItem || reqItem.length !== 64) throw 'Invalid item ID'
