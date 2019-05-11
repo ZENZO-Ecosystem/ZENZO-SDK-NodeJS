@@ -6,6 +6,8 @@
 
 [ZENZO Arcade Official Website](https://arcade.zenzo.io/)
 
+[Raw API Endpoint Documentation](https://github.com/ZENZO-Ecosystem/Guides/blob/master/Developer-API-Guide.md)
+
 # Getting Started
 
 Install the ZENZO NPM Package with:
